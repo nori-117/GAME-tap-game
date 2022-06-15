@@ -1,0 +1,276 @@
+//============================
+//	変数
+//============================
+$color_bg: #f1edcf; // 背景
+$color_text: #333333; // 文字
+$color_score: #ee3939; // スコア
+$color_button: #009944; // ボタン
+$color_button-shadow: #00662d; // ボタンの影
+$color_border: #b5b5b5; // ボックスの線
+$color_table-heading: #d5e3fa; // 表のデータ見出し
+$color_your-score: #b8d4fb; // ユーザーのスコア
+$color_alert: #e51010; // アラート
+$color_link: #2271b1; // リンク
+
+// ゲームターゲット
+$color_target01: #f43a3a;
+$color_target02: #118426;
+$color_target03: #eb9310;
+$color_target04: #2c39ef;
+$color_target-off: #646465;
+
+
+//============================
+//	共通
+//============================
+body {
+  color: $color_text;
+  background-color: $color_bg;
+}
+
+/* 送信ボタン（safari用） */
+input[type="submit"] {
+  -webkit-appearance: none;
+  border-radius: 0;
+}
+
+/* レイアウト */
+.l-inner {
+  max-width: 800px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 20px;
+}
+
+
+//============================
+//	ゲームページ
+//============================
+.game {
+  text-align: center;
+
+  /* テキスト */
+  &__text {
+    margin-top: 20px;
+    margin-bottom: 30px;
+  }
+
+  /* スコア表示 */
+  &__score-text {
+  color: $color_score;
+  font-weight: bold;
+  font-size: 20px;
+    /* クラス付与で非表示 */
+    &.display-none {
+      display: none;
+    }
+  }
+
+  /* ゲームエリア */
+  &__area {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    /* クラス付与で非表示 */
+    &.display-none {
+      display: none;
+    }
+    /* タップターゲット */
+    .target {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      border-radius: 25px;
+      cursor: pointer;
+      &.off {
+        background-color: $color_target-off;
+      }
+    }
+    .target01 {
+      background-color: $color_target01;
+      top: 10px;
+      left: 10px;
+    }
+    .target02 {
+      background-color: $color_target02;
+      top: 10px;
+      right: 10px;
+    }
+    .target03 {
+      background-color: $color_target03;
+      bottom: 10px;
+      right: 10px;
+    }
+    .target04 {
+      background-color: $color_target04;
+      bottom: 10px;
+      left: 10px;
+    }
+  }
+
+  /* スコア送信フォーム */
+  &__score-form {
+    position: relative;
+    /* クラス付与で非表示 */
+    &.display-none {
+      display: none;
+    }
+  }
+
+  /* ランキングを見るボタン */
+  &__ranking-button {
+    color: $color_link;
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-decoration: underline;
+    &:hover {
+      opacity: .7;
+    }
+  }
+
+  /* スタートボタン */
+  &__start-button {
+    font-size: 20px;
+    color: #fff;
+    font-weight: bold;
+    width: 250px;
+    height: 50px;
+    line-height: 50px;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: $color_button;
+    box-shadow: 0 5px 0 $color_button-shadow;
+    margin: 0 auto;
+    position: relative;
+    border: none;
+    /* クラス付与で非表示 */
+    &.display-none {
+      display: none;
+    }
+    &:hover {
+      opacity: .7;
+      transition: opacity .3s;
+    }
+    &:active {
+      box-shadow: 0 1px 0 $color_button-shadow;
+      margin-top: 4px;
+    }
+  }
+}
+
+
+//============================
+//	結果表示ページ
+//  ランキング表示ページ共通
+//============================
+.table {
+  background-color: #fff;
+  border: 1px solid $color_border;
+  width: 100%;
+  text-align: center;
+  border-collapse:collapse;
+
+  /* ユーザーのスコア */
+  tr.you {
+    background-color: $color_your-score;
+  }
+
+  /* データ見出し */
+  th {
+    background-color: $color_table-heading;
+    padding: 5px;
+  }
+
+  /* 各データ */
+  td {
+    padding: 5px;
+  }
+  
+}
+
+
+//============================
+//	結果登録ページ
+//============================
+.result {
+  text-align: center;
+
+  /* タイトル */
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  /* 登録用のフォーム等 */
+  &__register {
+    margin-top: 20px;
+  }
+
+  /* メッセージ */
+  &__message {
+    font-weight: bold;
+  }
+
+  /* あなたのスコア */
+  &__your-score {
+    font-weight: bold;
+    font-size: 20px;
+    color: $color_score;
+    margin-top: 10px;
+  }
+
+  /* フォーム */
+  &__form {
+    margin-top: 20px;
+  }
+
+  /* 名前入力欄 */
+  &__name {
+    // width: 100%;
+    padding: 10px;
+    border: 1px solid $color_border;
+  }
+
+  /* 未入力時のアラート */
+  &__alert {
+    font-size: 14px;
+    color: $color_alert;
+    margin-top: 5px;
+  }
+
+  /* 送信ボタン */
+  &__button {
+    padding: 5px 10px;
+  }
+
+  /* ゲームに戻るリンク */
+  &__back-link {
+    margin-top: 10px;
+  }
+}
+
+
+//============================
+//	ランキングページ
+//============================
+.ranking {
+  text-align: center;
+
+  /* タイトル */
+  &__title {
+    margin-bottom: 10px;
+  }
+
+  /* ゲームに戻るリンク */
+  &__back-link {
+    margin-top: 30px;
+  }
+}
